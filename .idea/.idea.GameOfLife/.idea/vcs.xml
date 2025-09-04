@@ -2,5 +2,10 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../Calculadora" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../PII_Desafio_Menu_2_Start" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../PII_P1_a_p2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../PII_Python Ej Python" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../trabajoProgramaci-n menu1" vcs="Git" />
   </component>
 </project>
