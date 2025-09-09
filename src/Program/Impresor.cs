@@ -1,8 +1,8 @@
 namespace Ucu.Poo.GameOfLife;
 
-public class Lector
+public class Impresor
 {
-    public void Leer(Tablero Lector)
+    public void ImprimirTablero(Tablero Impresor)
     {
     bool[,] Tablero    //variable que representa el tablero
     int Ancho  //variabe que representa el ancho del tablero
