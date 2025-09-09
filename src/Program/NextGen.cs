@@ -2,7 +2,7 @@ namespace Ucu.Poo.GameOfLife;
 
 public class NextGen
 {
-   public void CalcularGeneracion(Tablero nextgen) 
+   public static Tablero CalcularGeneracion(Tablero nextgen) 
    {
       int boardWidth = nextgen.Ancho;
       int boardHeight = nextgen.Altura;
@@ -23,32 +23,32 @@ public class NextGen
                   }
                }
             }
-            if(nextget.EstadoDeCelula(x,y))
+            if(nextgen.EstadoDeCelula(x,y))
             {
                aliveNeighbors--;
             }
-            if (nextget.EstadoDeCelula(x,y) && aliveNeighbors < 2)
+            if (nextgen.EstadoDeCelula(x,y) && aliveNeighbors < 2)
             {
                //Celula muere por baja población
-               cloneboard[x,y] = false;
+               cloneboard.CambiarCelula(x, y, false);
             }
-            else if (nextget.EstadoDeCelula(x,y) && aliveNeighbors > 3)
+            else if (nextgen.EstadoDeCelula(x,y) && aliveNeighbors > 3)
             {
                //Celula muere por sobrepoblación
-               cloneboard[x,y] = false;
+               cloneboard.CambiarCelula(x, y, false);
             }
-            else if (!nextget.EstadoDeCelula(x,y) && aliveNeighbors == 3)
+            else if (!nextgen.EstadoDeCelula(x,y) && aliveNeighbors == 3)
             {
                //Celula nace por reproducción
-               cloneboard[x,y] = true;
+               cloneboard.CambiarCelula(x, y, true);
             }
             else
             {
                //Celula mantiene el estado que tenía
-               cloneboard[x,y] = nextget.EstadoDeCelula(x,y);
+               cloneboard.CambiarCelula(x, y, nextgen.EstadoDeCelula(x,y));
             }
          }
       }
-      nextgen = cloneboard;
+      return cloneboard;
    }
 }

@@ -1,38 +1,42 @@
-namespace Ucu.Poo.GameOfLife;
+using System;
+using System.Text;
+using System.Threading;
 
-public class Impresor
+namespace Ucu.Poo.GameOfLife
 {
-    public void ImprimirTablero(Tablero Impresor)
+
+    public class Impresor
     {
-    bool[,] Tablero    //variable que representa el tablero
-    int Ancho  //variabe que representa el ancho del tablero
-    int Altura    //variabe que representa altura del tablero
-    while (true)
-    {
-        Console.Clear();
-        StringBuilder s = new StringBuilder();
-        for (int y = 0; y < Altura; y++)
+        public void ImprimirTablero(Tablero Impresor)
         {
-            for (int x = 0; x < Ancho; x++)
+            bool[,] Tablero; //variable que representa el tablero
+            int Ancho= Impresor.Ancho; //variabe que representa el ancho del tablero
+            int Altura= Impresor.Altura; //variabe que representa altura del tablero
+            while (true)
             {
-                if (Tablero[x, y])
+                Console.Clear();
+                StringBuilder s = new StringBuilder();
+                for (int y = 0; y < Altura; y++)
                 {
-                    s.Append("|X|");
+                    for (int x = 0; x < Ancho; x++)
+                    {
+                        if (Impresor.EstadoDeCelula(x, y))
+                        {
+                            s.Append("|X|");
+                        }
+                        else
+                        {
+                            s.Append("___");
+                        }
+                    }
+
+                    s.Append("\n");
                 }
-                else
-                {
-                    s.Append("___");
-                }
+
+                Console.WriteLine(s.ToString());
+                NextGen.CalcularGeneracion(Impresor);
+                Thread.Sleep(300);
             }
-
-            s.Append("\n");
         }
-
-        Console.WriteLine(s.ToString());
-        //=================================================
-        //Invocar método para calcular siguiente generación
-        //=================================================
-        Thread.Sleep(300);
-    }
     }
 }

@@ -6,7 +6,15 @@ namespace Ucu.Poo.GameOfLife
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Lectura leer = new Lectura();
+            Tablero tablero = leer.Leer("board.txt");
+            Impresor impresora = new Impresor();
+            
+            while (true)
+            {
+                impresora.ImprimirTablero(tablero);
+            }
+
         }
     }
 }

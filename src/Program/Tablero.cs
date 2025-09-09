@@ -3,27 +3,36 @@ namespace Ucu.Poo.GameOfLife;
 public class Tablero
 {
     private bool[,] matriz;
-    public int altura;
-    public int ancho;
-            
-    private int Altura
+    private int altura;
+    private int ancho;
+
+    public int Altura
     {
         get { return altura; }
         set { altura = value; }
     }
 
-    private int Ancho
+    public int Ancho
     {
         get { return ancho; }
         set { ancho = value; }
     }
-    
+
     public bool EstadoDeCelula(int x, int y)
     {
-        return matriz[y, x];
+        return matriz[x,y];
     }
+
     public void CambiarCelula(int x, int y, bool valor)
     {
-        matriz[y, x] = valor;
+        matriz[x,y] = valor;
+    }
+
+    public Tablero(int altura, int ancho)
+    {
+        this.altura = altura;
+        this.ancho = ancho;
+        this.matriz = new bool[altura, ancho];
+
     }
 }
